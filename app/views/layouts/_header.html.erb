@@ -1,8 +1,16 @@
 <header class="navbar-fixed">
 	<nav class="#b71c1c red darken-4">
 		<div class="container nav-wrapper">
-		  <%= link_to "Competitive World", root_path, class: "brand-logo" %>
-		  <ul id="nav-mobile" class="right hide-on-med-and-down">
+		  <%= link_to "Competitive World", root_path, class: " brand-logo" %>
+		  <ul id="nav-mobile" class="right 
+			hide-on-med-and-down">
+
+			<% if user_signed_in?%>
+ 				<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+ 				<% else %>
+			<li><%= link_to "Accedi", new_user_session_path %></li>
+			<li><%= link_to "Registrati", new_user_registration_path %></li>
+			<% end%>
 		</div>
 	</nav>	
 </header>
